@@ -50,12 +50,16 @@ const HomePage = () => {
       <Box
         w="100%"
         p={4}
-        borderRadius="2xl"
-        color="white"
-        backgroundColor="blackAlpha.900"
+        backgroundColor="rgba(230,230,230)"
+        border="rgba(255,255,255)"
+        borderRadius="0px 50px 0px 50px"
+        boxShadow="15px 15px 20px 5px rgba(119,119,119,0.5),
+        -11px -5px 20px 5px rgba(255,255,255,0.8),
+        inset 8px 1px 20px 5px rgba(119,119,119,0.5),
+          inset -5px -5px 20px 5px rgba(255,255,255,0.8) "
       >
         <Tabs variant="soft-rounded">
-          <TabList mb="1em">
+          <TabList mb="1em" className="input">
             <Tab width="50%">Login</Tab>
             <Tab width="50%">SignUP</Tab>
           </TabList>

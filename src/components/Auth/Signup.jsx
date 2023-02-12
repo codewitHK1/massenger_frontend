@@ -21,7 +21,7 @@ const Signup = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
-  const [pic, setPic] = useState();
+  const [pic, setPic] = useState("");
   const [loading, setLoading] = useState(false);
   const toast = useToast();
   const navigate = useHistory();
@@ -40,7 +40,7 @@ const Signup = () => {
       });
       return;
     }
-    console.log(pics);
+
     if (pics.type === "image/jpeg" || pics.type === "image/png") {
       const data = new FormData();
       data.append("file", pics);
@@ -53,7 +53,7 @@ const Signup = () => {
         .then((res) => res.json())
         .then((data) => {
           setPic(data.url.toString());
-          console.log(data.url.toString());
+
           setLoading(false);
         })
         .catch((err) => {
@@ -95,6 +95,7 @@ const Signup = () => {
     //   });
     //   return;
     // }
+
     try {
       const config = {
         headers: {
@@ -114,6 +115,7 @@ const Signup = () => {
         position: "top-left",
       });
       localStorage.setItem("userInfo", JSON.stringify(data));
+
       setLoading(false);
       navigate.push("/chats");
     } catch (error) {
@@ -132,12 +134,14 @@ const Signup = () => {
     <VStack spacing={3}>
       <FormControl id="first-name" isRequired>
         <Input
+          className="input"
           placeholder="Enter Your Name"
           onChange={(e) => setName(e.target.value)}
         />
       </FormControl>
       <FormControl id="email" isRequired>
         <Input
+          className="input"
           placeholder="Enter Your Email"
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -145,6 +149,7 @@ const Signup = () => {
       <FormControl id="password" isRequired>
         <InputGroup>
           <Input
+            className="input"
             type={show ? "text" : "password"}
             placeholder="Enter Your Password"
             onChange={(e) => setPassword(e.target.value)}
@@ -159,6 +164,7 @@ const Signup = () => {
       <FormControl id="confirmPassword" isRequired>
         <InputGroup>
           <Input
+            className="input"
             type={show ? "text" : "password"}
             placeholder="Re-Enter Your Password"
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -183,7 +189,7 @@ const Signup = () => {
         />
       </FormControl>
       <Button
-        // colorScheme="blue"
+        colorScheme="blue"
         style={{ marginTop: 15 }}
         onClick={submitHandler}
         isLoading={loading}
