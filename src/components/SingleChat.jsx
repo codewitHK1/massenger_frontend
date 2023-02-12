@@ -22,7 +22,7 @@ import axios from "axios";
 import io from "socket.io-client";
 import ScrollableChat from "./ScrollableChat";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://massenger-hk-server.onrender.com";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
